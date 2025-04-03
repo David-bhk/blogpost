@@ -4,8 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+
   </head>
   <body>
+    <%- include('partials/header') %>
+
     <h1>Welcome to the blog</h1>
+    <% if (posts.length > 0) { %>
+      <% posts.forEach(post => { %>
+          <div class="post">
+              <h2><a href="/post/<%= post.id %>"><%= post.title %></a></h2>
+              <p><%= post.content %></p>
+              <small>Posted on: <%= post.createdAt %></small>
+          </div>
+      <% }) %>
+  <% } else { %>
+      <p>No posts yet. <a href="/new">Create one!</a></p>
+  <% } %>
+  
+    <%- include('partials/footer') %>
+
   </body>
 </html>

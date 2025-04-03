@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<h1><%= post.title %></h1>
+<p><%= post.content %></p>
+<small>Posted on: <%= post.createdAt %></small>
+
+<form action="/delete/<%= post.id %>" method="POST">
+    <button type="submit">Delete Post</button>
+</form>
+
+<a href="/edit/<%= post.id %>">Edit</a>
+
+<form action="/delete/<%= post.id %>" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
+<a href="/">Back to Home</a>
+
+<%- include('partials/footer') %>
